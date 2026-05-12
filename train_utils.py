@@ -1,6 +1,3 @@
-"""
-Additional functions
-"""
 import torchvision.transforms as T
 import numpy as np
 import cv2
