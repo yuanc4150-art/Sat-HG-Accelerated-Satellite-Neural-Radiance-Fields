@@ -1,9 +1,8 @@
 import nerfacc
 import os
-import gc  # <--- 新增：引入垃圾回收模块
+import gc  
 
-# === 关键修复 1: 解决OpenCV与PyTorch多进程冲突 ===
-# 必须放在所有 import cv2 或 rasterio 的库之前
+
 os.environ["OPENCV_NUM_THREADS"] = "1"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 
@@ -15,7 +14,7 @@ from torch.utils.data import DataLoader
 from collections import defaultdict
 import numpy as np
 
-# 确保导入路径正确
+
 from opt import get_opts
 from datasets import load_dataset
 from metrics import load_loss, DepthLoss, SNerfLoss
@@ -23,7 +22,7 @@ from rendering import render_rays
 from models import load_model
 import train_utils
 import metrics
-from eval_satnerf import save_nerf_output_to_images, predefined_val_ts
+from eval_sathg import save_nerf_output_to_images, predefined_val_ts
 
 
 from pytorch_lightning.callbacks import ProgressBar
@@ -103,7 +102,7 @@ class NeRF_pl(pl.LightningModule):
         self.depth = self.args.ds_lambda > 0
         if self.depth:
             self.depth_loss = DepthLoss(self.args, lambda_ds=self.args.ds_lambda)
-            # --- 修改开始：强制设置为前 25% ---
+           
             self.ds_drop = 0.25 * self.args.max_train_steps
             self.ds_drop = self.args.ds_drop * self.args.max_train_steps
 
@@ -183,7 +182,7 @@ class NeRF_pl(pl.LightningModule):
 
         self.models = nn.ModuleDict(models_dict)
 
-    # === 前向渲染（严格保持世界坐标；不做任何原地改写）===
+    
     def forward(self, rays, ts):
         """
         rays: [N, ...] in WORLD coordinates
@@ -239,7 +238,7 @@ class NeRF_pl(pl.LightningModule):
 
 
 
-        from torch.utils.data import WeightedRandomSampler  # <--- 新增
+        from torch.utils.data import WeightedRandomSampler  
 
         num_workers = 2
         print(f"INFO: Using {num_workers} workers for DataLoader.")
@@ -332,7 +331,7 @@ class NeRF_pl(pl.LightningModule):
 
         if "radiometric" in self.models:
             rad_weight = self.models["radiometric"].weight
-            # A 应该接近 1，b 应该接近 0
+            
             reg_loss += ((rad_weight[:, :3] - 1.0) ** 2).mean()
             reg_loss += (rad_weight[:, 3:] ** 2).mean()
 
