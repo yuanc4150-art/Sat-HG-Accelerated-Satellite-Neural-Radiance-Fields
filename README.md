@@ -57,7 +57,7 @@ export OUT_DIR=/path/to/your/sathg-output
 
 ## 3. Training
 
-Use `main.py` to train the Sat-HG model. The following command provides an example of training on the `JAX_260` AOI with full features enabled (appearance embedding, radiometric normalization, distortion loss, etc.).
+Use `main.py` to train the Sat-HG model. The following command provides an example of training on the `JAX_260` AOI with full features enabled .
 
 ```bash
 python3 main.py --model sat-nerf-ngp --exp_name --gpu_id 0 --root_dir $DATA_DIR/root_dir/crops_rpcs_ba_v2/JAX_260 --img_dir $DATA_DIR/DFC2019/Track3-RGB-crops/JAX_260 --cache_dir $DATA_DIR/DFC2019/cache_dir/JAX_260_ngp --gt_dir $DATA_DIR/DFC2019/Track3-Truth --logs_dir $OUT_DIR/logs --ckpts_dir $OUT_DIR/ckpts --lr 0.005 --chunk 4096 --max_train_steps 100000 --use_smoothness_loss --use_appearance_embedding --use_distortion_loss --radiometric_normalization --img_downscale 2.0
