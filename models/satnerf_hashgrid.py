@@ -146,8 +146,8 @@ class HashGridNeRF(nn.Module):
                 n_input_dims=geometry_feature_dim, n_output_dims=1,
                 network_config={
                     "otype": "FullyFusedMLP", "activation": "ReLU", "output_activation": "None",
-                    "n_neurons": 128,       # 加宽
-                    "n_hidden_layers": 2    # 加深
+                    "n_neurons": 128,       
+                    "n_hidden_layers": 2    
                 }
             )
 
@@ -169,7 +169,7 @@ class HashGridNeRF(nn.Module):
                 network_config={
                     "otype": "FullyFusedMLP", "activation": "ReLU", "output_activation": "None",
                     "n_neurons": 32,
-                    "n_hidden_layers": 2    # 加深
+                    "n_hidden_layers": 2  
                 }
             )
 
@@ -192,8 +192,8 @@ class HashGridNeRF(nn.Module):
                 n_output_dims=1,
                 network_config={
                     "otype": "FullyFusedMLP", "activation": "ReLU", "output_activation": "None",
-                    "n_neurons": 64,        # 加宽
-                    "n_hidden_layers": 3    # 加深到4层
+                    "n_neurons": 64,        
+                    "n_hidden_layers": 3    
                 }
             )
 
