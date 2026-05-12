@@ -82,9 +82,4 @@ python3 eval_sathg.py exp_name $OUT_DIR/logs $OUT_DIR/eval_results epochID test 
 
 ## Acknowledgements
 
-This project is built upon the foundational architecture of the official [Sat-NeRF](https://github.com/centreborelli/sat-nerf) repository. We sincerely thank the original authors for their excellent open-source work. 
-
-Our main structural modifications upon their codebase include:
-1. Integration of `tiny-cuda-nn` for **HashGrid representation**.
-2. Re-engineering of the ECEF-to-UTM projection pipeline using modern `pyproj` APIs.
-3. Refactoring of the chunk-based volume rendering logic to eliminate Out-Of-Memory (OOM) issues during large-scale evaluation.
+Our implementation is built upon [Sat-NeRF](https://github.com/centreborelli/sat-nerf). We also thank the authors of these repositories: [instant-ngp](https://github.com/NVlabs/instant-ngp) and [SAT-NGP](https://github.com/Ellimac0/SAT-NGP).
