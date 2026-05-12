@@ -1,6 +1,3 @@
-"""
-This script contains functions that are useful to handle satellite images and georeferenced data
-"""
 import cv2
 import numpy as np
 import rasterio
@@ -11,7 +8,7 @@ import json
 import glob
 import rpcm
 from pyproj import CRS, Transformer
-import utm # 我们仍然使用 utm 库来方便地获取 zone 信息
+import utm 
 _transformer_cache = {}
 
 
