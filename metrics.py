@@ -1,9 +1,5 @@
 
 
-"""
-This script defines the evaluation metrics and the loss functions
-"""
-
 import torch
 from kornia.losses import ssim as ssim_
 
