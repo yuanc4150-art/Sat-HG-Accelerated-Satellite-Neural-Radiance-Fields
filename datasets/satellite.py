@@ -181,9 +181,9 @@ class SatelliteDataset(Dataset):
             all_rgbs: (N, 3) tensor of floats encoding all the rgb colors corresponding to N rays
         """
         all_rgbs, all_rays, all_sun_dirs, all_ids = [], [], [], []
-        all_sampling_weights = []  # <--- 新增
+        all_sampling_weights = []  
 
-        # 引入 cv2 用于计算梯度
+       
         import cv2
 
         for t, json_p in enumerate(json_files):
@@ -255,7 +255,7 @@ class SatelliteDataset(Dataset):
         all_rgbs = all_rgbs.type(torch.FloatTensor)
 
 
-        self.all_sampling_weights = torch.cat(all_sampling_weights, 0)  # <--- 新增
+        self.all_sampling_weights = torch.cat(all_sampling_weights, 0)  
 
         return all_rays, all_rgbs, all_ids
 
