@@ -9,7 +9,7 @@ import torch
 from .satellite import SatelliteDataset, get_rays
 from torchvision import transforms as T
 
-from .satellite import load_tensor_from_rgb_geotiff # 确保可以调用
+from .satellite import load_tensor_from_rgb_geotiff 
 
 
 from PIL import Image
