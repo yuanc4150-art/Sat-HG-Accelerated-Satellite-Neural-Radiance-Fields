@@ -1,6 +1,3 @@
-"""
-This script renders the input rays that are used to feed the HashGrid NeRF model.
-"""
 import torch
 import math
 
