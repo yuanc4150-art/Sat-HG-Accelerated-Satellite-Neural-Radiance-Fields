@@ -1,7 +1,3 @@
-"""
-This script defines the input parameters that can be customized from the command line
-"""
-
 import argparse
 import datetime
 import json
