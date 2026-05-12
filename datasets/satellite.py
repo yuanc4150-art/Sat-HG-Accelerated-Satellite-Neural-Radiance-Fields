@@ -1,6 +1,3 @@
-"""
-This script defines the dataloader for a dataset of multi-view satellite images
-"""
 import json
 
 import numpy as np
